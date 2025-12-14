@@ -58,32 +58,10 @@ This system is built with scalability in mind and supports **asynchronous CSV pr
 
 ---
 
+
 ## 🏗️ System Architecture
 
-+---------------------+ +------------------------+ +----------------------+
-    | Frontend |      --->       | Backend |      --->   | PostgreSQL |
-  | React + Vite |          | Node.js + Express |         | Supabase |
-+----------+----------+ +-----------+------------+ +-----------+----------+
-| |
-| |
-| v
-| +------------------------+
-| | Async CSV Processor |
-| | + Job Progress Track |
-| +-----------+------------+
-| |
-| v
-| +------------------------+
-| | Jobs Table |
-| | (processed / success / |
-| | failed rows) |
-| +------------------------+
-|
-v
-+---------------------+
-| Admin Dashboard |
-| (Aggregated Metrics)|
-+---------------------+
+![System Architecture](docs/architecture.jpg)
 
 ---
 
