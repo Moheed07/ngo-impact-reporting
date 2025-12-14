@@ -58,20 +58,18 @@ This system is built with scalability in mind and supports **asynchronous CSV pr
 
 ---
 
-## 🏗️ Architecture Overview
 ## 🏗️ System Architecture
 
 ```mermaid
 flowchart LR
-    A[Frontend<br/>(React + Vite)] --> B[Backend<br/>(Node.js + Express)]
-    B --> C[PostgreSQL<br/>(Supabase)]
+    A["Frontend\n(React + Vite)"] --> B["Backend\n(Node.js + Express)"]
+    B --> C["PostgreSQL\n(Supabase)"]
 
-    B --> D[Async CSV Processor]
-    D --> E[Jobs Table<br/>(Progress Tracking)]
+    B --> D["Async CSV Processor"]
+    D --> E["Jobs Table\n(Progress Tracking)"]
 
-    A --> F[Admin Dashboard]
+    A --> F["Admin Dashboard"]
     F --> B
-
 
 ---
 
@@ -101,26 +99,11 @@ flowchart LR
 
 ### ➕ Submit Single Report
 
-POST /report
-
-
 ### 📂 Upload CSV (Async)
-
-
-POST /reports/upload
-
 
 ### ⏱️ Check Job Status
 
-
-GET /job-status/:jobId
-
-
 ### 📊 Dashboard Aggregation
-
-
-GET /dashboard?month=YYYY-MM
-
 
 ---
 
@@ -152,73 +135,55 @@ GET /dashboard?month=YYYY-MM
 git clone https://github.com/Moheed07/ngo-impact-reporting.git
 cd ngo-impact-reporting
 
-Backend Setup
+### Backend Setup
 cd backend
 npm install
 npm start
 
-Frontend Setup
+### Frontend Setup
 cd frontend
 npm install
 npm run dev
 
-🔐 Environment Variables (Backend)
+### 🔐 Environment Variables (Backend)
 DATABASE_URL=postgresql://<user>:<password>@<host>:<port>/<db>?sslmode=require
 NODE_TLS_REJECT_UNAUTHORIZED=0
 
-🧠 Key Engineering Decisions
+---
 
-Asynchronous CSV processing to avoid blocking requests
+###🧠 Key Engineering Decisions
 
-Idempotent database writes using unique constraints
+- Asynchronous CSV processing to avoid blocking requests
+- Idempotent database writes using unique constraints
+- Job-based progress tracking for long-running tasks
+- Separation of concerns between frontend, backend, and database
+- Production debugging of TLS, IPv6, and cloud networking issues
 
-Job-based progress tracking for long-running tasks
+###🔮 Future Improvements
 
-Separation of concerns between frontend, backend, and DB
+- Authentication & role-based access control
+- Retry logic for failed CSV rows
+- Pagination & filters in dashboard
+- Background job queues (Redis + BullMQ)
+- Structured logging & monitoring
+- Dockerized deployment
 
-Production debugging of TLS, IPv6, and cloud networking issues
+###🤖 AI Assistance
 
-🔮 Future Improvements
+- AI tools were used to:
+- Debug deployment and networking issues
+- Validate architectural decisions
+- Improve error handling and robustness
 
-Authentication & role-based access control
-
-Retry logic for failed CSV rows
-
-Pagination & filters in dashboard
-
-Background job queues (Redis + BullMQ)
-
-Structured logging & monitoring
-
-Dockerized deployment
-
-🤖 AI Assistance
-
-AI tools were used to:
-
-Debug deployment and networking issues
-
-Validate architectural decisions
-
-Improve error handling and robustness
-
-All code was reviewed, understood, and implemented manually.
-
-📌 Author
+### 📌 Author
 
 Moheed Nawaaz
 Computer Science Graduate | Aspiring SDE
 
-🏁 Final Notes
+### 🏁 Final Notes
 
-This project demonstrates:
-
-Real-world CRUD operations
-
-Asynchronous backend processing
-
-Production deployment & debugging
-
-Cloud networking and database integration
-
-It reflects practical, hands-on full-stack engineering skills.
+- This project demonstrates:
+- Real-world CRUD operations
+- Asynchronous backend processing
+- Production deployment & debugging
+- Cloud networking and database integration
