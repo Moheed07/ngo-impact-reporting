@@ -60,16 +60,30 @@ This system is built with scalability in mind and supports **asynchronous CSV pr
 
 ## 🏗️ System Architecture
 
-```mermaid
-flowchart LR
-    A["Frontend\n(React + Vite)"] --> B["Backend\n(Node.js + Express)"]
-    B --> C["PostgreSQL\n(Supabase)"]
-
-    B --> D["Async CSV Processor"]
-    D --> E["Jobs Table\n(Progress Tracking)"]
-
-    A --> F["Admin Dashboard"]
-    F --> B
++---------------------+ +------------------------+ +----------------------+
+    | Frontend |      --->       | Backend |      --->   | PostgreSQL |
+  | React + Vite |          | Node.js + Express |         | Supabase |
++----------+----------+ +-----------+------------+ +-----------+----------+
+| |
+| |
+| v
+| +------------------------+
+| | Async CSV Processor |
+| | + Job Progress Track |
+| +-----------+------------+
+| |
+| v
+| +------------------------+
+| | Jobs Table |
+| | (processed / success / |
+| | failed rows) |
+| +------------------------+
+|
+v
++---------------------+
+| Admin Dashboard |
+| (Aggregated Metrics)|
++---------------------+
 
 ---
 
