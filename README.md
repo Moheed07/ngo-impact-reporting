@@ -61,7 +61,7 @@ This system is built with scalability in mind and supports **asynchronous CSV pr
 
 ## 🏗️ System Architecture
 
-![System Architecture](docs/architecture.jpg)
+![System Architecture](docs/architecture.png)
 
 ---
 
