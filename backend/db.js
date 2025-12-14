@@ -5,7 +5,7 @@ const pool = new Pool({
   ssl: {
     rejectUnauthorized: false
   },
-  family: 4   // 👈 FORCE IPv4 (THIS FIXES ENETUNREACH)
+  family: 4
 });
 
 module.exports = pool;
